@@ -4,22 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= config.serverName %> | SA-MP 0.3DL</title>
-    
-    <!-- Favicon -->
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
-    
-    <!-- CSS -->
     <link rel="stylesheet" href="/css/style.css">
-    
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Dynamic CSS Variables -->
     <style>
         :root {
             --primary: <%= colors.primary %>;
@@ -31,12 +21,10 @@
         }
     </style>
     
-    <!-- Meta Tags -->
     <meta name="description" content="<%= config.description %>">
     <meta name="theme-color" content="<%= config.primaryColor %>">
 </head>
 <body>
-    <!-- Video Background -->
     <div class="video-bg">
         <video autoplay muted loop playsinline>
             <source src="/assets/background.mp4" type="video/mp4">
@@ -46,7 +34,6 @@
         <div class="video-overlay"></div>
     </div>
     
-    <!-- Main Container -->
     <div class="container">
         <!-- Header - Hanya Judul -->
         <header class="header">
@@ -54,7 +41,6 @@
             <p class="server-tagline"><%= config.tagline %></p>
         </header>
 
-        <!-- Main Actions -->
         <main class="main-content">
             <div class="actions-container">
                 <!-- Discord Action -->
@@ -71,7 +57,6 @@
                     </div>
                 </a>
 
-                <!-- Play Now Action -->
                 <button class="action-btn play-btn" id="play-button">
                     <div class="btn-icon">
                         <i class="fas fa-play"></i>
@@ -87,7 +72,6 @@
             </div>
         </main>
 
-        <!-- Footer -->
         <footer class="footer">
             <div class="footer-content">
                 <p class="copyright">&copy; <%= currentYear %> <%= config.copyrightText %></p>
@@ -95,7 +79,6 @@
         </footer>
     </div>
 
-    <!-- Connection Modal -->
     <div class="modal-overlay" id="modal-overlay">
         <div class="modal">
             <div class="modal-header">
@@ -119,7 +102,6 @@
                     </div>
                 </div>
 
-                <!-- Connection Steps -->
                 <div class="steps-section">
                     <div class="section-title">
                         <i class="fas fa-list-ol"></i>
@@ -157,7 +139,6 @@
                     </div>
                 </div>
 
-                <!-- Quick Actions -->
                 <div class="quick-actions">
                     <button class="quick-btn copy-address-btn" data-address="<%= serverAddress %>">
                         <i class="far fa-copy"></i>
@@ -172,7 +153,6 @@
         </div>
     </div>
 
-    <!-- JavaScript Configuration -->
     <script>
         window.CONFIG = {
             serverAddress: '<%= serverAddress %>',
