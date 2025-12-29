@@ -28,14 +28,12 @@
     <div class="video-bg">
         <video autoplay muted loop playsinline>
             <source src="/assets/background.mp4" type="video/mp4">
-            <!-- Fallback image jika video tidak bisa diputar -->
             <div class="video-fallback"></div>
         </video>
         <div class="video-overlay"></div>
     </div>
     
     <div class="container">
-        <!-- Header - Hanya Judul -->
         <header class="header">
             <h1 class="server-name"><%= config.serverName %></h1>
             <p class="server-tagline"><%= config.tagline %></p>
@@ -43,7 +41,6 @@
 
         <main class="main-content">
             <div class="actions-container">
-                <!-- Discord Action -->
                 <a href="<%= config.discordInvite %>" target="_blank" class="action-btn discord-btn">
                     <div class="btn-icon">
                         <i class="fab fa-discord"></i>
@@ -87,7 +84,6 @@
             </div>
             
             <div class="modal-body">
-                <!-- Server Address -->
                 <div class="address-section">
                     <div class="address-label">
                         <i class="fas fa-server"></i>
