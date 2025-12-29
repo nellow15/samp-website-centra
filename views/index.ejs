@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= config.serverName %> | SA-MP 0.3DL</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Dynamic CSS Variables -->
+    <style>
+        :root {
+            --primary: <%= colors.primary %>;
+            --primary-dark: <%= adjustedColors.primaryDark %>;
+            --primary-light: <%= adjustedColors.primaryLight %>;
+            --dark: <%= colors.dark %>;
+            --light: <%= colors.light %>;
+            --discord: <%= colors.discord %>;
+        }
+    </style>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="<%= config.description %>">
+    <meta name="theme-color" content="<%= config.primaryColor %>">
+</head>
+<body>
+    <!-- Video Background -->
+    <div class="video-bg">
+        <video autoplay muted loop playsinline>
+            <source src="/assets/background.mp4" type="video/mp4">
+            <!-- Fallback image jika video tidak bisa diputar -->
+            <div class="video-fallback"></div>
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+    
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header - Hanya Judul -->
+        <header class="header">
+            <h1 class="server-name"><%= config.serverName %></h1>
+            <p class="server-tagline"><%= config.tagline %></p>
+        </header>
+
+        <!-- Main Actions -->
+        <main class="main-content">
+            <div class="actions-container">
+                <!-- Discord Action -->
+                <a href="<%= config.discordInvite %>" target="_blank" class="action-btn discord-btn">
+                    <div class="btn-icon">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <div class="btn-text">
+                        <h2>JOIN DISCORD</h2>
+                        <p>Connect with our community</p>
+                    </div>
+                    <div class="btn-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+
+                <!-- Play Now Action -->
+                <button class="action-btn play-btn" id="play-button">
+                    <div class="btn-icon">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="btn-text">
+                        <h2>PLAY NOW</h2>
+                        <p>Connect to the server</p>
+                    </div>
+                    <div class="btn-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </button>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p class="copyright">&copy; <%= currentYear %> <%= config.copyrightText %></p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Connection Modal -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>CONNECT TO SERVER</h2>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <!-- Server Address -->
+                <div class="address-section">
+                    <div class="address-label">
+                        <i class="fas fa-server"></i>
+                        SERVER ADDRESS
+                    </div>
+                    <div class="address-box">
+                        <code class="server-ip"><%= serverAddress %></code>
+                        <button class="copy-ip-btn copy-address-btn" data-address="<%= serverAddress %>">
+                            <i class="far fa-copy"></i>
+                            COPY
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Connection Steps -->
+                <div class="steps-section">
+                    <div class="section-title">
+                        <i class="fas fa-list-ol"></i>
+                        CONNECTION STEPS
+                    </div>
+                    <div class="steps-list">
+                        <div class="step-item">
+                            <div class="step-number">01</div>
+                            <div class="step-content">
+                                <h4>Open SA-MP Client</h4>
+                                <p>Launch the SA-MP application on your computer</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">02</div>
+                            <div class="step-content">
+                                <h4>Add Server to Favorites</h4>
+                                <p>Click "Add Server" in the favorites tab</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">03</div>
+                            <div class="step-content">
+                                <h4>Enter Server Address</h4>
+                                <p>Paste: <code><%= serverAddress %></code></p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">04</div>
+                            <div class="step-content">
+                                <h4>Click Connect</h4>
+                                <p>Press "Add" then "Connect" to join the server</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <button class="quick-btn copy-address-btn" data-address="<%= serverAddress %>">
+                        <i class="far fa-copy"></i>
+                        COPY SERVER ADDRESS
+                    </button>
+                    <button class="quick-btn close-btn" id="modal-close-btn">
+                        <i class="fas fa-times"></i>
+                        CLOSE
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Configuration -->
+    <script>
+        window.CONFIG = {
+            serverAddress: '<%= serverAddress %>',
+            discordInvite: '<%= config.discordInvite %>'
+        };
+    </script>
+    <script src="/js/script.js"></script>
+</body>
+</html>
